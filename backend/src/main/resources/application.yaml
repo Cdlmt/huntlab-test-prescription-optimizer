@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: prescription-optimizer
+  
+  datasource:
+    url: jdbc:postgresql://localhost:5432/prescription_db
+    username: prescription_user
+    password: prescription_pass
+    driver-class-name: org.postgresql.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          time_zone: UTC
+  
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:data.sql
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    com.cosium.prescription: DEBUG
+

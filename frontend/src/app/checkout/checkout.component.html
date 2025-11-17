@@ -1,0 +1,65 @@
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="patientName">Patient Name *</label>
+    <input 
+      id="patientName" 
+      type="text" 
+      formControlName="patientName"
+      placeholder="Enter patient name">
+    <div class="error" *ngIf="checkoutForm.get('patientName')?.invalid && checkoutForm.get('patientName')?.touched">
+      Patient name is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="lensType">Lens Type *</label>
+    <select id="lensType" formControlName="lensType">
+      <option value="">Select a lens type</option>
+      <option *ngFor="let lens of lensTypes" [value]="lens.value">
+        {{ lens.label }} - €{{ lens.price }}
+      </option>
+    </select>
+    <div class="error" *ngIf="checkoutForm.get('lensType')?.invalid && checkoutForm.get('lensType')?.touched">
+      Lens type is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="quantity">Quantity *</label>
+    <input 
+      id="quantity" 
+      type="number" 
+      formControlName="quantity"
+      min="1">
+    <div class="error" *ngIf="checkoutForm.get('quantity')?.invalid && checkoutForm.get('quantity')?.touched">
+      Quantity must be at least 1
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="discountCode">Discount Code (Optional)</label>
+    <input 
+      id="discountCode" 
+      type="text" 
+      formControlName="discountCode"
+      placeholder="Enter discount code">
+    <small style="color: #666; display: block; margin-top: 5px;">
+      Valid codes: SUMMER2024, VIP10, WELCOME
+    </small>
+  </div>
+
+  <div class="order-summary">
+    <h2>Order Summary</h2>
+    <p><strong>Patient:</strong> {{ checkoutForm.get('patientName')?.value || 'N/A' }}</p>
+    <p><strong>Lens Type:</strong> {{ checkoutForm.get('lensType')?.value || 'N/A' }}</p>
+    <p><strong>Quantity:</strong> {{ checkoutForm.get('quantity')?.value || 0 }}</p>
+    <p><strong>Discount Code:</strong> {{ checkoutForm.get('discountCode')?.value || 'None' }}</p>
+    <div class="total">
+      Total: €{{ calculatedTotal || 0 }}
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="checkoutForm.invalid">Submit Order</button>
+  <button type="button" (click)="checkoutForm.reset(); calculatedTotal = 0">Reset</button>
+</form>
+

@@ -13,14 +13,15 @@ Votre mission est de corriger ces trois problèmes, d'écrire des tests pour val
 ## Stack Technique
 
 ### Backend
-- **Java 17** avec **Spring Boot 3.2**
-- **JPA / Hibernate 6** pour la persistence
-- **PostgreSQL 14** comme base de données
+- **Java 21** avec **Spring Boot 3.5**
+- **JPA / Hibernate 6.6** pour la persistence
+- **PostgreSQL 17** comme base de données
 - **Maven** pour la gestion des dépendances
 - **JUnit 5** pour les tests
 
 ### Frontend
-- **Angular 15** avec **TypeScript 4.8**
+- **Angular 21** avec **TypeScript 5.9**
+- **RxJS 7.8** pour la programmation réactive
 - **Reactive Forms** pour la gestion des formulaires
 - **Jasmine/Karma** pour les tests
 
@@ -57,10 +58,10 @@ cosium-prescription-optimizer/
 
 ### Prérequis
 
-- **Java 17** ou supérieur
-- **Node.js 16+** et **npm**
+- **Java 21** ou supérieur
+- **Node.js 22.12+** et **npm 10+**
 - **Docker** et **Docker Compose**
-- **Maven 3.8+**
+- **Maven 3.9+**
 
 ### 1. Démarrer la Base de Données
 

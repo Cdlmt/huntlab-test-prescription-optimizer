@@ -13,7 +13,7 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
@@ -21,7 +21,12 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@angular/core/primitives/di": ["node_modules/@angular/core/primitives/di"],
+      "@angular/common/http": ["node_modules/@angular/common/http"],
+      "@angular/core/testing": ["node_modules/@angular/core/testing"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -30,4 +35,3 @@
     "strictTemplates": true
   }
 }
-

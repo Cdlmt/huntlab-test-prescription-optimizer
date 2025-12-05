@@ -54,4 +54,3 @@ public class EligibilityService {
         return "Prescription is valid and covered";
     }
 }
-

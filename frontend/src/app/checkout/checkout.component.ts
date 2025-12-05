@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-checkout',
+  standalone: false,
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })
@@ -55,7 +56,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     // BUG: NaN occurs when discountCode is empty string or user clears the field
     // The find() returns undefined, and accessing .percentage on undefined causes issues
     const discount = this.discountCodes.find(d => d.code === discountCode);
-    const discountPercentage = discount.percentage; // BUG: No null/undefined check!
+    const discountPercentage = discount!.percentage; // BUG: No null/undefined check!
     
     // BUG: When discountPercentage is undefined, this calculation produces NaN
     const discountAmount = (subtotal * discountPercentage) / 100;
@@ -78,4 +79,3 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 }
-

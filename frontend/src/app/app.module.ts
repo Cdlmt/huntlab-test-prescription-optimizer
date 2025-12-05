@@ -7,17 +7,9 @@ import { AppComponent } from './app.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CheckoutComponent
-  ],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule
-  ],
-  providers: [
-    provideHttpClient()
-  ],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent, CheckoutComponent],
+  imports: [BrowserModule, ReactiveFormsModule],
+  providers: [provideHttpClient()],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

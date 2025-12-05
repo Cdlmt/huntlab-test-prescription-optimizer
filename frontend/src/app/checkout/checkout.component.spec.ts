@@ -28,4 +28,3 @@ describe('CheckoutComponent', () => {
   // 2. Calculate total with empty discount code (should not produce NaN)
   // 3. Calculate total with invalid discount code (should not produce NaN)
 });
-

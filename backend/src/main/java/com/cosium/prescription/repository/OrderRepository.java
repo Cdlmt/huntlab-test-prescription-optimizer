@@ -13,4 +13,3 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     // Also filters in memory instead of using SQL WHERE clause
     List<Order> findAll();
 }
-
